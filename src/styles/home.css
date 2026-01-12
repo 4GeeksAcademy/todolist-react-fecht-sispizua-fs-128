@@ -1,0 +1,73 @@
+.todoList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    margin: 20px;
+    background-color: rgba(240, 248, 255, 0.744);
+    border-radius: 2%;
+
+}
+
+.formTodoList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formTodoList label {
+    margin-right: 20px;
+    padding: 5px;
+    color: white;
+    font-size: x-large;
+    color: black;
+
+}
+
+.formTodoList input {
+    width: 350px;
+    box-sizing: border-box;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 0;
+    padding: 0px 2px;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#tarea {
+    width: 350px;
+}
+
+.task {
+    width: 350px;
+    border: 1px solid black;
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 2px 0px 2px;
+}
+
+.limpiarLista {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.botonEliminar {
+    color: red;
+    border-style: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.15s ease;
+    display: inline-block;
+}
+
+.botonEliminar:hover {
+    transform: scale(1.2);
+    font-weight: bold;
+}

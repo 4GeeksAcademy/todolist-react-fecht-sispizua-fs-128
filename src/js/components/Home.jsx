@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../../styles/home.css"
 
 const Home = () => {
     const API_URL = "https://playground.4geeks.com/todo";
@@ -87,7 +88,7 @@ const Home = () => {
             method: "DELETE"
         });
         if (response.ok) {
-           getAllTasks();
+            getAllTasks();
         }
     }
     //montaje de todas las tareas 
@@ -95,15 +96,16 @@ const Home = () => {
         getAllTasks()
     }, [])
     return (
-        <div className="row">
+        <div className="todoList">
             {showAlert && (
                 <div className="alert alert-warning" role="alert">
                     No hay ninguna tarea, por favor inerte un tarea.
                 </div>
             )}
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="tarea">Tarea</label>
+            <form onSubmit={handleSubmit} className="formTodoList">
+                <label htmlFor="tarea">Lista de Tareas</label>
                 <input
+                    placeholder="Escribe una nueva tarea..."
                     id="tarea"
                     type="text"
                     name="label"
@@ -114,13 +116,13 @@ const Home = () => {
             {tasks.map((item) => (
                 <div key={item.id} className="task">
                     {item.label}
-                    <button type="button" onClick={() => deleteTask(item.id)}><i className="fa-solid fa-trash"></i></button>
+                    <button type="button" className="botonEliminar" onClick={() => deleteTask(item.id)}>X</button>
                 </div>
 
             ))}
 
             <div>
-                <button type="button" onClick={()=> cleanTasks()} className="btn btn-primary">Limpiar lista de Tareas</button>
+                <button type="button" onClick={() => cleanTasks()} className="btn btn-danger limpiarLista">Limpiar lista de Tareas</button>
             </div>
         </div>
     );
