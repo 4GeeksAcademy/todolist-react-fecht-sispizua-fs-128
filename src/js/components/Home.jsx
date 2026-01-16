@@ -64,9 +64,7 @@ const Home = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newTask),
-            headers: {
-                "content-type": "application/json"
-            }
+            
         });
         if (response.ok) {
             setTask({ label: "", is_done: false });
@@ -79,16 +77,16 @@ const Home = () => {
         const response = await fetch(`${API_URL}/todos/${id}`, {
             method: "DELETE"
         });
-        if (response.ok) {
-            setTasks((prev) => prev.filter((t) => t.id !== id));
-        }
+        return getAllTasks();
     }
     const cleanTasks = async () => {
-        const response = await fetch(`${API_URL}/todos/${id}`, {
+        const response = await fetch(`${API_URL}/users/${USER}`, {
             method: "DELETE"
         });
         if (response.ok) {
-            getAllTasks();
+            createUser();
+            setTasks([]);
+
         }
     }
     //montaje de todas las tareas 
